@@ -22,8 +22,9 @@ public class TitleLayout  extends LinearLayout{
     public TitleLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.title,this);
-        Button mButtonBack= findViewById(R.id.title_back);
+//        Button mButtonBack= findViewById(R.id.title_back);
         Button  mButtonEdit =findViewById(R.id.title_edit);
+        Button mButtonBack = findViewById(R.id.title_back);
         mButtonBack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
