@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+        <!--
+        layout_width 必须设置为match_parent 才能起作用，否则无法居中
+         gravity 属性 相当与在垂直和水平方向居中
+
+         textSize 更改字体的大小 注意为了适配，使用sp
+         textColor 更改字体的颜色
+
+
+        -->
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="this is a TestView !"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:textColor="#00ff00"
+            />
+
+        <!--
+        textAllCaps 系统默认英文自动提升成为大写，重新设置为false禁止掉。
+        -->
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            android:onClick="Click"
+            android:textAllCaps="false"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_text"
+            android:hint="请输出用户名： "
+            android:maxLines="2"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_view"
+            android:src="@mipmap/ic_launcher"
+            />
+
+    <!--
+      style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        修改样式，并且初始化最大值为100
+
+        可以修改其他的样式
+    -->
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"/>
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
