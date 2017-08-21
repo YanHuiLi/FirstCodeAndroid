@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="10dp">
+
+
+    <!--
+    在这个页面里面，就可以非常清楚的感受到
+    gravity 和layout_gravity的区别
+    gravity 针对的是控件里面的内容，比如文字的摆放方式
+    layout_gravity针对的是控件在父控件中的摆放方式
+
+
+    图片的引用src
+
+    -->
+
+    <LinearLayout
+        android:id="@+id/left_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left"
+        >
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:id="@+id/left_msg"
+            android:background="@drawable/message_left"
+            android:layout_gravity="center"
+
+            android:textColor="#fff"
+            android:gravity="center"
+            android:text="好好学习"
+
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/r_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_margin="10dp"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:id="@+id/right_msg"
+            android:background="@drawable/message_right"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:gravity="center"
+            android:text="天天向上"
+            />
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>
