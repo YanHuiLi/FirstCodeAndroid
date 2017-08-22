@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/news_title_layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-
+    android:layout_height="match_parent" >
 
     <fragment
         android:id="@+id/news_title_fragment"
-        android:name="site.yanhui.fragmentbestpractice.NewsTitleFragment"
+        android:name="site.yanhui.fragment.NewsTitleFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/news_item"/>
+        />
+
 </FrameLayout>

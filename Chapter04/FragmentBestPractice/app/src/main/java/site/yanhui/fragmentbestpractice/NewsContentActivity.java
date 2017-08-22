@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import site.yanhui.fragment.NewsContentFragment;
+
 public class NewsContentActivity extends AppCompatActivity {
 
     public static void actionStart(Context context, String newsTitle, String newsContent) {

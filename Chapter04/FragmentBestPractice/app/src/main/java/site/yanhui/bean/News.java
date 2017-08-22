@@ -1,4 +1,4 @@
-package site.yanhui.fragmentbestpractice;
+package site.yanhui.bean;
 
 /**
  * Created by Archer on 2017/8/21.

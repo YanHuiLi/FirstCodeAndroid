@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    tools:context="site.yanhui.fragmentbestpractice.NewsContentActivity">
 
 
     <fragment
         android:id="@+id/news_content_fragment"
-        android:name="site.yanhui.fragmentbestpractice.NewsContentFragment"
+        android:name="site.yanhui.fragment.NewsContentFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/news_content_frag"/>
-
+        />
 </LinearLayout>

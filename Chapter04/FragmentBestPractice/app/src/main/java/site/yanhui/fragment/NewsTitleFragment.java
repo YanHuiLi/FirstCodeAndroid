@@ -1,4 +1,4 @@
-package site.yanhui.fragmentbestpractice;
+package site.yanhui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +12,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import site.yanhui.bean.News;
+import site.yanhui.fragmentbestpractice.NewsContentActivity;
+import site.yanhui.fragmentbestpractice.R;
 
 public class NewsTitleFragment extends Fragment {
 
@@ -79,6 +83,8 @@ public class NewsTitleFragment extends Fragment {
             mNewsList = newsList;
         }
 
+
+        //创建一个缓存的viewHolder
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item, parent, false);

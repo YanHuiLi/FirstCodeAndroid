@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/news_title_fragment"
-        android:name="site.yanhui.fragmentbestpractice.NewsTitleFragment"
+        android:name="site.yanhui.fragment.NewsTitleFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />
@@ -19,7 +19,7 @@
 
         <fragment
             android:id="@+id/news_content_fragment"
-            android:name="site.yanhui.fragmentbestpractice.NewsContentFragment"
+            android:name="site.yanhui.fragment.NewsContentFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>
