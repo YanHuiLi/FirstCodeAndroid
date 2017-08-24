@@ -1,0 +1,128 @@
+{
+    "android_gradle_plugin_version": "2.3.3",
+    "apk_path": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\build\\outputs\\apk\\app-debug.apk",
+    "apt": {
+        "app": {
+            "aptArgs": [
+                
+            ],
+            "aptOutput": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\build\\generated\\source\\apt\\debug",
+            "disableDiscovery": false,
+            "enabled": true,
+            "processor": null,
+            "processorPath": "C:\\Users\\Archer\\.android\\build-cache\\fcd483ad23d1cb0c4cb42b3b9d1e9bb6ff7fa908\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\1657bb3a05f996837ddb690c4628952d4c669b09\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\6557231b76e8308bdbf054356c9cc82dc86246a0\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\ccd35901f8ec54bd21e37992dca839eb8c46e1b4\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\63bb710ced55be93e7ba782e19458ac1257f1dc3\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\d479192349c6dac0da110f51facc0928dbc47b90\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\3ae5c868ff4f686fd5f1f0589206591eb219134d\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\7a95f288978aad1fdb25c5b6ba472c88d740d3d4\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\a2cf3a4578cfc8a89612617c0a3a5804acc229c0\\output\\jars\\classes.jar;C:\\Users\\Archer\\.android\\build-cache\\c76e8653edacb668055ecbb55d113b427b04b421\\output\\jars\\classes.jar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\m2repository\\com\\android\\support\\constraint\\constraint-layout-solver\\1.0.2\\constraint-layout-solver-1.0.2.jar;C:\\Users\\Archer\\.android\\build-cache\\2aafcb578d394f41acbc81dbbe53ee1c39a6d376\\output\\jars\\classes.jar;C:\\Users\\Archer\\.gradle\\caches\\modules-2\\files-2.1\\com.jakewharton\\butterknife-annotations\\8.4.0\\ea392375cf9ff59234a82e7928a204215ccc98cd\\butterknife-annotations-8.4.0.jar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\support-annotations\\26.0.0-alpha1\\support-annotations-26.0.0-alpha1.jar;C:\\Users\\Archer\\.android\\build-cache\\3fb40264b49dc0c5775daa8f9e631ef45f62ec78\\output\\jars\\classes.jar;C:\\Users\\Archer\\.gradle\\caches\\modules-2\\files-2.1\\com.jakewharton\\butterknife-compiler\\8.4.0\\22f40cd3f01849c6deeab0a755d2082b2624581\\butterknife-compiler-8.4.0.jar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\appcompat-v7\\26.0.0-alpha1\\appcompat-v7-26.0.0-alpha1.aar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\m2repository\\com\\android\\support\\constraint\\constraint-layout\\1.0.2\\constraint-layout-1.0.2.aar;C:\\Users\\Archer\\.gradle\\caches\\modules-2\\files-2.1\\com.jakewharton\\butterknife\\8.4.0\\6c39334929311ff90a06c67ca310db1342fe2b6a\\butterknife-8.4.0.aar;C:\\Users\\Archer\\.gradle\\caches\\modules-2\\files-2.1\\com.google.auto\\auto-common\\0.6\\cf7212b0f8bfef12657b942df8f4f2cf032d3f41\\auto-common-0.6.jar;C:\\Users\\Archer\\.gradle\\caches\\modules-2\\files-2.1\\com.google.auto.service\\auto-service\\1.0-rc2\\51033a5b8fcf7039159e35b6878f106ccd5fb35f\\auto-service-1.0-rc2.jar;C:\\Users\\Archer\\.gradle\\caches\\modules-2\\files-2.1\\com.squareup\\javapoet\\1.7.0\\4fdcf1fc27c1a8f55d1109df986c923152f07759\\javapoet-1.7.0.jar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\support-v4\\26.0.0-alpha1\\support-v4-26.0.0-alpha1.aar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\support-vector-drawable\\26.0.0-alpha1\\support-vector-drawable-26.0.0-alpha1.aar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\animated-vector-drawable\\26.0.0-alpha1\\animated-vector-drawable-26.0.0-alpha1.aar;C:\\Users\\Archer\\.gradle\\caches\\modules-2\\files-2.1\\com.google.guava\\guava\\18.0\\cce0823396aa693798f8882e64213b1772032b09\\guava-18.0.jar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\support-compat\\26.0.0-alpha1\\support-compat-26.0.0-alpha1.aar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\support-media-compat\\26.0.0-alpha1\\support-media-compat-26.0.0-alpha1.aar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\support-core-utils\\26.0.0-alpha1\\support-core-utils-26.0.0-alpha1.aar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\support-core-ui\\26.0.0-alpha1\\support-core-ui-26.0.0-alpha1.aar;E:\\adt-bundle-windows-x86_64-20140702\\sdk\\extras\\android\\m2repository\\com\\android\\support\\support-fragment\\26.0.0-alpha1\\support-fragment-26.0.0-alpha1.aar"
+        }
+    },
+    "apt_libraries": {
+        "dagger": false,
+        "butterknife": true
+    },
+    "auto_dependency": true,
+    "build_cache_dir": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\build\\freeline",
+    "build_directory": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\build",
+    "build_script": "gradlew.bat :app:assembleDebug",
+    "build_script_work_directory": "",
+    "build_tools_directory": "E:\\adt-bundle-windows-x86_64-20140702\\sdk\\build-tools\\26.0.1",
+    "build_tools_version": "26.0.1",
+    "check_sources_md5": [
+        
+    ],
+    "compile_sdk_directory": "E:\\adt-bundle-windows-x86_64-20140702\\sdk\\platforms\\android-26",
+    "compile_sdk_version": "android-26",
+    "databinding": [
+        
+    ],
+    "databinding_compiler_jar": "",
+    "databinding_modules": [
+        
+    ],
+    "debug_package": "site.yanhui.filepersistencetest",
+    "exclude_dep_res_paths": [
+        
+    ],
+    "extra_dep_res_paths": [
+        
+    ],
+    "freeline_cache_dir": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest",
+    "freeline_gradle_plugin_version": "0.8.7",
+    "ignore_resource_ids": [
+        "avd_hide_password_1",
+        "avd_hide_password_2",
+        "avd_hide_password_3",
+        "avd_show_password_1",
+        "avd_show_password_2",
+        "avd_show_password_3"
+    ],
+    "java_home": "C:\\Program Files\\Java\\jdk1.8.0_73",
+    "launcher": "site.yanhui.filepersistencetest.MainActivity",
+    "main_assets_directory": [
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\assets",
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\assets"
+    ],
+    "main_jniLibs_directory": [
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\jniLibs",
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\jniLibs"
+    ],
+    "main_jni_directory": [
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\jni",
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\jni"
+    ],
+    "main_manifest_path": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\AndroidManifest.xml",
+    "main_project_dir": "app",
+    "main_project_name": "app",
+    "main_r_path": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\build\\generated\\source\\r\\debug\\R.java",
+    "main_res_directory": [
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\res",
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\res"
+    ],
+    "main_src_directory": [
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\java",
+        "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\java"
+    ],
+    "module_dependencies": {
+        "app": [
+            
+        ]
+    },
+    "modules": [
+        {
+            "name": "app",
+            "path": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app"
+        }
+    ],
+    "package": "site.yanhui.filepersistencetest",
+    "product_flavor": "",
+    "project_source_sets": {
+        "app": {
+            "main_assets_directory": [
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\assets",
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\jniLibs",
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\jni",
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\jni"
+            ],
+            "main_manifest_path": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\res",
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\debug\\java",
+                "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest\\app\\src\\main\\java"
+            ]
+        }
+    },
+    "project_type": "gradle",
+    "retrolambda": {
+        
+    },
+    "root_dir": "E:\\01TheFirstCodeInAndroid\\CodingFirstCode\\Chapter06\\FilePersistenceTest",
+    "sdk_directory": "E:\\adt-bundle-windows-x86_64-20140702\\sdk",
+    "use_jdk8": true,
+    "use_system_gradle": false
+}
