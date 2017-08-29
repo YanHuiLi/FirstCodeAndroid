@@ -152,6 +152,8 @@ public class DatabaseProvider extends ContentProvider {
                 String categoryId = uri.getPathSegments().get(1);
                 db.update("Category", values, "id=?", new String[]{categoryId});
                 break;
+            default:
+                break;
         }
         return updateRows;
     }

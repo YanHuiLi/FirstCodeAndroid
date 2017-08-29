@@ -20,5 +20,17 @@
         android:id="@+id/queryData"
         android:text="queryData"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_data"
+        android:text="UpdateData"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DeleteData"
+        android:text="DeleteData"/>
+
 
 </LinearLayout>
