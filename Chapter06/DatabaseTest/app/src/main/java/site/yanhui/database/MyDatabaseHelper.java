@@ -3,7 +3,6 @@ package site.yanhui.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 /**
  * Created by Archer on 2017/8/24.
@@ -48,7 +47,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(CREATE_BOOK);
         db.execSQL(CREATE_CATEGORY);//创建第一个表
-        Toast.makeText(mContext, "Create succeeded!", Toast.LENGTH_SHORT).show();
+
+        //跨程序使用的时候不能使用toast
+//        Toast.makeText(mContext, "Create succeeded!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

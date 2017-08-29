@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.add_data:
                 SQLiteDatabase db = databaseHelper.getWritableDatabase();//拿到写的权限
                 ContentValues values = new ContentValues();
+
                 //开始组装第一条数据
                 values.put("name", "The Da Vinci Code");
                 values.put("author", "Dan Brown");
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Cursor cursor = dbQuery.query("Book", null, null, null, null, null, null);
                 if (cursor.moveToFirst()) {
                     do {
+                        Log.d(TAG,"===========================");
                         String name = cursor.getString(cursor.getColumnIndex("name"));
                         String author = cursor.getString(cursor.getColumnIndex("author"));
                         int pages = cursor.getInt(cursor.getColumnIndex("pages"));
