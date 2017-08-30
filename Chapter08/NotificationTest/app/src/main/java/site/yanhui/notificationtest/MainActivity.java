@@ -19,6 +19,7 @@ import android.widget.Button;
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
 
-
                 //4.实例化一个Notification对象
                 Notification notification = new NotificationCompat.Builder(this)
                         .setContentTitle("this is content title.")//设置title
@@ -66,21 +66,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                        .setLights(Color.GREEN,1000,1000)
 
                         //8.设置成系统默认铃声和震动
-                        .setDefaults(NotificationCompat.DEFAULT_ALL)
+//                        .setDefaults(NotificationCompat.DEFAULT_ALL)
 
                         //9.如果非要使用长文本推送的话使用如下操作，如果支持长文本操作就显示这段内容，如果不支持就显示setContentText里的内容
-                        .setStyle(new NotificationCompat.BigTextStyle().bigText(("Learn how to build notification,send and sysnc data ,and use voice actions . Get the official ")))
+//                        .setStyle(new NotificationCompat.BigTextStyle().bigText(("Learn how to build notification,send and sysnc data ,and use voice actions . Get the official ")))
                         //setstyle只能2选1，如果都选了，以后面的为准
+
                         //10.还可以插入一张大图片使用bitmapfactory得到一个bitmap对象
 //                        .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(BitmapFactory.decodeResource(getResources(),R.drawable.pig_meitu_3)))
-
-
-
                         .setContentIntent(pendingIntent)//要求传入一个pendingIntent对象
-
-                        /**
-                         * 采用v4包的notificationcompat全兼容
-                         */
                         .setPriority(NotificationCompat.PRIORITY_MAX)//5.0，6.0，7.0都有用
                         .build();
 
