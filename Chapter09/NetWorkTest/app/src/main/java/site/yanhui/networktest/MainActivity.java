@@ -13,6 +13,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+@SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textView;
@@ -29,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button sendRequest= (Button) findViewById(R.id.Send_request);
         sendRequest.setOnClickListener(this);
         textView = (TextView) findViewById(R.id.response_text);
+        Button sendRequestOkhttp= (Button) findViewById(R.id.send_request_okhttp);
+        sendRequestOkhttp.setOnClickListener(this);
     }
 
     @Override
@@ -37,7 +44,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.Send_request:
                 sendRequestWithHttpURLConnection();
                 break;
+            case R.id.send_request_okhttp:
+                sendRequestWithOkHttp();
+                break;
         }
+    }
+
+    private void sendRequestWithOkHttp() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                //实例化一个okHttpClient
+                OkHttpClient okHttpClient= new OkHttpClient();
+                //request发起一个请求
+                Request request= new Request.Builder()
+                        .url("http://www.google.com")
+                      .build();
+                    Response response = okHttpClient.newCall(request).execute();
+                    String string = response.body().string();
+                    showResponse(string);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
     }
 
     private void sendRequestWithHttpURLConnection() {
