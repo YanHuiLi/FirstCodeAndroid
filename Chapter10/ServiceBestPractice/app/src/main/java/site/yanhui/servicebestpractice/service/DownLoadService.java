@@ -165,8 +165,9 @@ public class DownLoadService extends Service {
                     if (file.exists()) {
                         file.delete();
                     }
+
+                    stopForeground(true);//停止前台服务
                     getNotificationManager().cancel(1);
-                    stopForeground(true);
                     Toast.makeText(DownLoadService.this, "Canceled", Toast.LENGTH_SHORT).show();
                 }
             }
