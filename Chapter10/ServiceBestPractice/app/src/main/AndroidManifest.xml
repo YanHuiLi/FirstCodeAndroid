@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="site.yanhui.servicetest">
+          package="site.yanhui.servicebestpractice">
 
     <application
         android:allowBackup="true"
@@ -16,16 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".service.MyService"
-            android:enabled="true"
-            android:exported="true">
-        </service>
-        <service
-            android:name=".service.MyIntentService"
-            android:exported="false">
-        </service>
     </application>
 
 </manifest>
