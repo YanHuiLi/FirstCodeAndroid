@@ -1,6 +1,8 @@
 package site.yanhui.materialtest;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -25,10 +27,31 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();//获得actionbar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);//设置指示器 图片不是很适配
-
+//            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);//设置指示器 图片不是很适配
         }
 
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        navigationView.setCheckedItem(R.id.nav_call);//设置成点击的样子
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            /**
+             * Called when an item in the navigation menu is selected.
+             *
+             * @param item The selected item
+             * @return true to display the item as the selected item
+             */
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //设置点击事件
+//                switch (item.getItemId()) {
+//                    case R.id.nav_call:
+//                        Toast.makeText(MainActivity.this, "you click call", Toast.LENGTH_SHORT).show();
+//                        drawerLayout.closeDrawers();
+//                        break;
+//                }
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
     /**
@@ -51,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);//点击打开抽屉
+                drawerLayout.openDrawer(GravityCompat.START);//点击打开抽屉,之前的图片不适配 我取消了使用
                 break;
             case R.id.backUp:
                 Toast.makeText(this, "you click backup", Toast.LENGTH_SHORT).show();
