@@ -14,5 +14,6 @@ public class NotificationActivity extends AppCompatActivity {
         //第二种取消的方式传入的1就是在notify方法里面，我们指定的1，就是这个notification的id
         NotificationManager notificationManager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancel(1);
+        notificationManager.cancel(3);
     }
 }

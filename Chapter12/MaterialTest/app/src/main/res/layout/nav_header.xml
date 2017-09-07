@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/User_Mail"
         android:layout_alignParentBottom="true"
-        android:text="archer_lee@yeah.net"
+        android:text="archer_xxx@xxx.xxx"
         android:textColor="#fff"
         android:textSize="14sp"/>
 
