@@ -7,6 +7,7 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Fruit> mFruitList=new ArrayList<>();//前后都要有泛型
     private RecyclerView recyclerView;
     private FruitAdapter mAdapter;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,8 +102,43 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new FruitAdapter(mFruitList);
         recyclerView.setAdapter(mAdapter);
 
+        //设置下拉刷新组件
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshFruits();
+            }
+
+
+        });
     }
-//初始化水果
+
+    //下拉刷新水果
+    private void refreshFruits() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        initFruit();
+                        mAdapter.notifyDataSetChanged();//通知适配器，数据发生变化
+                        swipeRefreshLayout.setRefreshing(false);//刷新结束，隐藏进度条
+                    }
+                });
+            }
+        }).start();
+    }
+
+    //初始化水果
     private void initFruit() {
         mFruitList.clear();
         for (int i = 0; i < 50; i++) {
