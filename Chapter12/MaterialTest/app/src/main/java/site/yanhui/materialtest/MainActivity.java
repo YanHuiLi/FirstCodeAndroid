@@ -9,15 +9,36 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import site.yanhui.materialtest.adapter.FruitAdapter;
+import site.yanhui.materialtest.bean.Fruit;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
+
+    //把所有的fruit放入一个对象数组中，等待添加
+    private Fruit[] fruits = {new Fruit("Apple", R.drawable.apple), new Fruit("Banana", R.drawable.banana),
+            new Fruit("Orange", R.drawable.orange), new Fruit("Watermelon", R.drawable.watermelon),
+            new Fruit("Pear", R.drawable.pear), new Fruit("Grape", R.drawable.grape),
+            new Fruit("Pineapple", R.drawable.pineapple), new Fruit("Strawberry", R.drawable.strawberry),
+            new Fruit("Cherry", R.drawable.cherry), new Fruit("Mango", R.drawable.mango)};
+
+    //初始化一个集合用来装bean对象
+    private List<Fruit> mFruitList=new ArrayList<>();//前后都要有泛型
+    private RecyclerView recyclerView;
+    private FruitAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +93,23 @@ public class MainActivity extends AppCompatActivity {
                         .show();
             }
         });
+        initFruit();
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        GridLayoutManager gridLayoutManager= new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        mAdapter = new FruitAdapter(mFruitList);
+        recyclerView.setAdapter(mAdapter);
+
+    }
+//初始化水果
+    private void initFruit() {
+        mFruitList.clear();
+        for (int i = 0; i < 50; i++) {
+            Random random=new Random();
+            int index = random.nextInt(fruits.length);//保证在fruit的size里面
+            mFruitList.add(fruits[index]);//把fruit放入一个数组里面，然后添加
+
+        }
     }
 
     /**
