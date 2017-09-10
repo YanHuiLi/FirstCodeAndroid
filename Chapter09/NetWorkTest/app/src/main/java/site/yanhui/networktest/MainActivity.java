@@ -2,16 +2,28 @@ package site.yanhui.networktest;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParserFactory;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -20,6 +32,7 @@ import okhttp3.Response;
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "MainActivity";
     private TextView textView;
 
     @Override
@@ -60,17 +73,91 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 OkHttpClient okHttpClient= new OkHttpClient();
                 //request发起一个请求
                 Request request= new Request.Builder()
-                        .url("http://www.google.com")
+//                        .url("http://yanhui.site")
+                        .url("http://ogtmd8elu.bkt.clouddn.com/aaa.xml")
                       .build();
                     Response response = okHttpClient.newCall(request).execute();
-                    String string = response.body().string();
-                    showResponse(string);
+                    String responseData = response.body().string();
+                    showResponse(responseData);
+//                    parseXMLWithPull(responseData);
+                    parseXMLWithSax(responseData);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
             }
         }).start();
+    }
+
+    /**
+     * 解析从服务器返回来的xml数据
+     * @param data 返回的string 数据
+     */
+    private void parseXMLWithSax(String data) {
+        SAXParserFactory factory =SAXParserFactory.newInstance();
+        try {
+            XMLReader xmlReader = factory.newSAXParser().getXMLReader();
+            ContentHandler contentHandler= new ContentHandler();
+            //hadler实例放入在xmlReader中
+            xmlReader.setContentHandler(contentHandler);
+            //开始执行
+            xmlReader.parse(new InputSource(new StringReader(data)));
+
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 采取Pull方式进行解析
+     * @param data 和服务器交互，返回得到的XML data数据
+     */
+    private void  parseXMLWithPull(String data) {
+        try {
+            //得到XmlPullParserFactory的实例
+            XmlPullParserFactory factory= XmlPullParserFactory.newInstance();
+            XmlPullParser mXmlpullParser=factory.newPullParser();//得到解析器
+            mXmlpullParser.setInput(new StringReader(data));
+            int eventType = mXmlpullParser.getEventType();
+            String id="";
+            String name="";
+            String Version="";
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                String nodeName = mXmlpullParser.getName();
+                switch (eventType) {
+                    //开始解析某个节点
+                    case XmlPullParser.START_TAG:{
+                        if ("id".equals(nodeName)) {
+                            id=mXmlpullParser.nextText();
+                        }else if ("name".equals(nodeName)){
+                            name=mXmlpullParser.nextText();
+                        }else if ("Version".equals(nodeName)){
+                            Version=mXmlpullParser.nextText();
+                        }
+                        break;
+                    }
+                    case XmlPullParser.END_TAG:{
+                        if ("app".equals(nodeName)){
+                            Log.d(TAG, "parseXMLWithPull: id is "+id);
+                            Log.d(TAG, "parseXMLWithPull: name is  "+name);
+                            Log.d(TAG, "parseXMLWithPull: version is "+ Version);
+                        }
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                eventType=mXmlpullParser.next();
+            }
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void sendRequestWithHttpURLConnection() {
@@ -83,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              @Override
              public void run() {
                  try {
-                     URL url = new URL("http://www.google.com");//实例化一个URL
+                     URL url = new URL("http://www.yanhui.site");//实例化一个URL
                      connection = (HttpURLConnection) url.openConnection();//打开这个链接
                      connection.setRequestMethod("GET");//得到数据
                      connection.setConnectTimeout(8000);
