@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Response response = okHttpClient.newCall(request).execute();
                     String responseData = response.body().string();
                     showResponse(responseData);
-//                    parseXMLWithPull(responseData);
+                    parseXMLWithPull(responseData);
                     parseXMLWithSax(responseData);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -130,6 +130,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String nodeName = mXmlpullParser.getName();
                 switch (eventType) {
                     //开始解析某个节点
+                    /**
+                     *
+                     <apps>
+                      <app>
+                     <id>1</id>
+                     <name>Google Maps</name>
+                     <Version>1.0</Version>
+                     </app>
+
+                     <app>
+                     <id>2</id>
+                     <name>chrome</name>
+                     <Version>2.1</Version>
+                     </app>
+
+                     <app>
+                     <id>3</id>
+                     <name>Google Play</name>
+                     <Version>2.3</Version>
+                     </app>
+
+                     </apps>
+
+                     我在服务器上存放的数据如上，进入到case: START_TAG语句的时候，会先检查
+                     apps不匹配就跳出，再检查app的，还是不匹配就跳出，一直带检查到id的匹配上了，就赋值
+                     然后name version，接下来执行endtag   /id /name /version /app检测到了就输出之前存入的数据
+                     然后调用了next方法继续检测下一段数据。
+                     打个断点就清楚到底是怎么执行的了。
+                     */
+
                     case XmlPullParser.START_TAG:{
                         if ("id".equals(nodeName)) {
                             id=mXmlpullParser.nextText();
