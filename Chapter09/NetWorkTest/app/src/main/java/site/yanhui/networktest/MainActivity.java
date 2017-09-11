@@ -7,6 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -21,6 +27,7 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
@@ -28,9 +35,21 @@ import javax.xml.parsers.SAXParserFactory;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import site.yanhui.networktest.bean.AppBean;
 
+
+/**
+*create at 2017/9/10 by 19:51
+*作者：Archer
+*功能描述：
+ * 1.使用pull和sax的方式解析xml数据
+ * 2.使用jsonObject处理json数据
+ * 3.使用Gson处理json数据
+ * 4.使用第三方库okhttp发送请求
+*/
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     private static final String TAG = "MainActivity";
     private TextView textView;
@@ -49,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView = (TextView) findViewById(R.id.response_text);
         Button sendRequestOkhttp= (Button) findViewById(R.id.send_request_okhttp);
         sendRequestOkhttp.setOnClickListener(this);
+       Button JsonButton= (Button) findViewById(R.id.JsonButton);
+        JsonButton.setOnClickListener(this);
+        Button GsonButton= (Button) findViewById(R.id.GsonButton);
+       GsonButton.setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +83,113 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.send_request_okhttp:
                 sendRequestWithOkHttp();
                 break;
+            case R.id.JsonButton:
+                sendRequestWithOkHttpAndJson();
+                break;
+            case R.id.GsonButton:
+                parseGson();
+
+                break;
+        }
+    }
+
+    /**
+     * 使用Gson解析json
+     */
+    private void parseGson() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    //实例化一个okHttpClient
+                    OkHttpClient okHttpClient= new OkHttpClient();
+                    //request发起一个请求
+                    Request request= new Request.Builder()
+//                        .url("http://yanhui.site")
+                            .url("http://ogtmd8elu.bkt.clouddn.com/aaa.json")
+                            .build();
+                    Response response = okHttpClient.newCall(request).execute();
+                    String responseData = response.body().string();
+                    showResponse(responseData); //界面显示返回的数据
+                    parseJsonWithGson(responseData);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
+    }
+
+    /**
+     * 使用gson解析数据
+     * @param data
+     */
+    private void parseJsonWithGson(String data) {
+        Gson gson= new Gson();
+        List<AppBean> appList= gson.fromJson(data,new TypeToken<List<AppBean>>(){}.getType());
+        for (AppBean app : appList) {
+            Log.d(TAG, "parseJsonWithGson:  id is " + app.getId());
+            Log.d(TAG, "parseJsonWithGson: name is " + app.getName());
+            Log.d(TAG, "parseJsonWithGson: version is " + app.getVersion());
+
+        }
+    }
+
+    /**
+     * 使用okhttp发送请求
+     * 并且使用jsonObject的方式解析数据
+     */
+    private void sendRequestWithOkHttpAndJson() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    //实例化一个okHttpClient
+                    OkHttpClient okHttpClient= new OkHttpClient();
+                    //request发起一个请求
+                    Request request= new Request.Builder()
+//                        .url("http://yanhui.site")
+                            .url("http://ogtmd8elu.bkt.clouddn.com/aaa.json")
+                            .build();
+                    Response response = okHttpClient.newCall(request).execute();
+                    String responseData = response.body().string();
+                    showResponse(responseData); //界面显示返回的数据
+                    parseJsonWithJsonObject(responseData);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
+    }
+
+    /**
+     * 使用jsonObject处理返回的json数据
+     * @param data
+     *
+     * 打断点，看代码的执行顺序
+     * {}一对花括号代表一个jsonObject
+     * []代表一个jsonArray 里面包含多个jsonObject
+     */
+    private void parseJsonWithJsonObject(String data) {
+        try {
+            JSONArray jsonArray=new JSONArray(data);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject= jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String name = jsonObject.getString("name");
+                String version = jsonObject.getString("version");
+                Log.d(TAG, "parseJsonWithJsonObject: id is  "+id);
+                Log.d(TAG, "parseJsonWithJsonObject: name is "+name);
+                Log.d(TAG, "parseJsonWithJsonObject: version is " +version );
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -78,9 +208,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                       .build();
                     Response response = okHttpClient.newCall(request).execute();
                     String responseData = response.body().string();
-                    showResponse(responseData);
-                    parseXMLWithPull(responseData);
-                    parseXMLWithSax(responseData);
+                    showResponse(responseData); //界面显示返回的数据
+                    parseXMLWithPull(responseData);  //Pull方法解析XML
+                    parseXMLWithSax(responseData); //sax的方式解析XML
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

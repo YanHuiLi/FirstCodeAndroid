@@ -20,6 +20,17 @@
         android:id="@+id/send_request_okhttp"
         android:text="OkHttp"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/JsonButton"
+        android:text="JsonButton"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/GsonButton"
+        android:text="GsonButton"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
