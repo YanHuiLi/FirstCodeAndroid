@@ -23,6 +23,7 @@ package site.yanhui.coolweather.gson;
 public class AQI {
     public AQICity city;
 
+    //内部类
     public class AQICity {
         public String aqi;
         public String pm25;
