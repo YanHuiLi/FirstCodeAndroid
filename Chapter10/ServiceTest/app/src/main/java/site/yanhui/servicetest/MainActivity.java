@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     //拿到DownBinder的实例开启下载功能
     private MyService.DownLoadBinder downLoadBiner;
+
     //用serviceConnection和服务通讯
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override

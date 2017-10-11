@@ -1,5 +1,6 @@
 package site.yanhui.coolweather.activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -29,6 +30,7 @@ import okhttp3.Response;
 import site.yanhui.coolweather.R;
 import site.yanhui.coolweather.gson.Forecast;
 import site.yanhui.coolweather.gson.Weather;
+import site.yanhui.coolweather.service.AutoUpdateService;
 import site.yanhui.coolweather.util.HttpUtils;
 import site.yanhui.coolweather.util.Utility;
 
@@ -162,7 +164,8 @@ public class WeatherActivity extends AppCompatActivity {
      */
     public void requestWeather(final String weatherid) {
         //bc0418b57b2d4918819d3974ac1285d9我自己的
-        String weatherUrl = "http://guolin.tech/api/weather?cityid=" + weatherid + "&key=bc0418b57b2d4918819d3974ac1285d9";
+        //74533a333bfe43a4844b1c8244ab66b1
+        String weatherUrl = "http://guolin.tech/api/weather?cityid=" + weatherid + "&key=74533a333bfe43a4844b1c8244ab66b1";
         HttpUtils.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -247,6 +250,8 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(catWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**

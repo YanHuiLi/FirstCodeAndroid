@@ -12,7 +12,8 @@
         <activity
             android:name=".FirstActivity"
             android:label="hello My First Activity"
-            android:launchMode="singleTask">
+            android:launchMode="singleTop"
+            android:taskAffinity="yanshui.site.task01">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

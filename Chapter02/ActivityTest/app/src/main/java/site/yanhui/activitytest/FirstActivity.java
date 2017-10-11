@@ -1,15 +1,14 @@
 package site.yanhui.activitytest;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import static android.R.id.button1;
-
-public class FirstActivity extends BaseActivity {
+public class FirstActivity extends BaseActivity implements View.OnTouchListener,GestureDetector.OnGestureListener{
 
     private static final String TAG = "FirstActivity";
     @Override
@@ -21,11 +20,14 @@ public class FirstActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent= new Intent(FirstActivity.this,SecondActivity.class);
-//                startActivity(intent);
+                Intent intent= new Intent();
+                intent.setClass(FirstActivity.this,FirstActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                startActivity(intent);
 
                 //传递两个特别重要的参数过去
-                SecondActivity.actionStart(FirstActivity.this,"data1","data2");
+//                SecondActivity.actionStart(FirstActivity.this,"data1","data2");
             }
         });
 
@@ -36,5 +38,40 @@ public class FirstActivity extends BaseActivity {
     protected void onRestart() {
         super.onRestart();
         Log.d(TAG, "onRestart: ");
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return false;
     }
 }

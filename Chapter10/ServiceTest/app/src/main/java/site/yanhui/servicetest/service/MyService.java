@@ -55,6 +55,7 @@ public class MyService extends Service {
      */
     @Override
     public IBinder onBind(Intent intent) {
+        Log.d(TAG, "onBind: ");
         return mBinder;
     }
 
@@ -85,6 +86,12 @@ public class MyService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.d(TAG, "onUnbind: ");
+        return super.onUnbind(intent);
+    }
 
     @Override
     public void onDestroy() {

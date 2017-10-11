@@ -140,6 +140,7 @@ public class ChooseAreaFragment extends Fragment {
                 }
             }
         });
+        //最先显示的省级的城市信息，因此先执行的是次方法
         queryProvinces();
     }
 
@@ -159,6 +160,7 @@ public class ChooseAreaFragment extends Fragment {
             listView.setSelection(0);//设置到头
             currentLevel = LEVEL_PROVINCE;
         } else {
+            //如果表里面没有数据，则执行的是从服务器取出数据（第一次执行的时候，肯定是走此逻辑）
             String address = "http://guolin.tech/api/china";
             queryFromServer(address, "province");
         }

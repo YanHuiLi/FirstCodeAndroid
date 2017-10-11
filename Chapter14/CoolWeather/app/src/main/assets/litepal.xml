@@ -9,8 +9,6 @@
         <mapping class="site.yanhui.coolweather.db.City"/>
         <mapping class="site.yanhui.coolweather.db.Province"/>
         <mapping class="site.yanhui.coolweather.db.County"/>
-
-
     </list>
 
 </litepal>
