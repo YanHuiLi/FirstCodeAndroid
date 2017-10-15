@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.change_text:
 
-
+                //耗时操作的话，新开一个子线程来操作。不然会造成主线程阻塞ANR异常
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
